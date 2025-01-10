@@ -23,3 +23,11 @@ Git Checkout                CREATE OR MOVE TO A BRANCH
 GIT REBASE vs. GIT MERGE 
     REBASE - move the commits from remote branch on top of master commits
     MERGE - adds a new merge commit, preserving the history 
+
+
+
+New things that I've learned:
+- GIT INIT command to be used when a new git repository is created locally (or before an existing repository will be cloned)
+
+
+- mv File_Name File_New_Name command that I used to change/convert .gitignore.text into .gitignore
