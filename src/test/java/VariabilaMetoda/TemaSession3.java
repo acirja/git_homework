@@ -7,6 +7,9 @@ import java.util.ArrayList;
 public class TemaSession3 {
     public static void main(String[] args) {
 
+        int[] numbers = {2, 5, 8, 11, 3, 6, 9, 15};
+        System.out.println(identifyNumbers(numbers));
+
         //primul array cu elemente de tip int
         int[] years = {1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990};
 
@@ -95,6 +98,21 @@ public class TemaSession3 {
         for (Float i : floatingNumbers){
             //System.out.println("Afiseaza Array list-ul floatingNumbers folosind For-each: " + i);
         }
-    }
+   }
 
+    public static String identifyNumbers(int[] numbers){
+        for (int number : numbers){
+            if (number < 5){
+                continue;
+            }
+
+            if (number > 10){
+                break;
+            }
+
+            System.out.println("Identified number: " + number);
+        }
+
+        return "Number identification completed!";
+    }
 }
