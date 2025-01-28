@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class TemaSession3 {
     public static void main(String[] args) {
 
+        //array numbers is used in the identifyNumbers method, where continue, break, return are used in the same method
         int[] numbers = {2, 5, 8, 11, 3, 6, 9, 15};
         System.out.println(identifyNumbers(numbers));
 
