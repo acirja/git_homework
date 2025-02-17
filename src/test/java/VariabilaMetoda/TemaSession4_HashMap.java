@@ -1,6 +1,7 @@
 package VariabilaMetoda;
 
 import com.sun.security.jgss.GSSUtil;
+import org.openqa.selenium.chromium.HasLaunchApp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,90 +9,86 @@ import java.util.Map;
 public class TemaSession4_HashMap {
     private static HashMap<String,String> cityName = new HashMap<>();
 
+    private static HashMap<String, String> productPrice = new HashMap<>();
+
     //method to add a pair of key-value
-    public void addNewCity(String name, String city){
-        cityName.put(name, city);
-        System.out.println("New city added: " + name + " -> " + city);
+    public void addNewKeyValuePair(String key, String value, HashMap<String, String> hashMapParam){
+        hashMapParam.put(key, value);
+        System.out.println("New key-value pair added: " + key + " -> " + value);
     }
 
-    //method to return the city/value for a given name/key
-    public String returnCity(String name){
-        return cityName.getOrDefault(name, "City not found");
+   //method to return the value for a given key
+    public String returnValue(String key, HashMap<String, String> hashMapParam){
+        return hashMapParam.getOrDefault(key, "Value not found");
     }
 
-    //check if a name/key exists
-    public boolean checkIfANameExists(String name){
-        return cityName.containsKey(name);
+    //check if a key exists
+    public boolean checkIfAKeyExists(String key, HashMap<String, String> hashMapParam){
+        return hashMapParam.containsKey(key);
     }
 
-    //remove a pair of name-city
-    public void removeANameCity(String name, String city){
-        cityName.remove(name, city);
-        System.out.println("Remove " + name + "->" + city + " from the list");
+    //remove a pair key-value
+    public void removeAPairKeyValue(String key, String value, HashMap<String, String> hashMapParam){
+        hashMapParam.remove(key, value);
+        System.out.println("Remove " + key + "->" + value + " from the list");
     }
 
-    //update the city for a given existing name
-    public void replaceACityForName(String name, String newCity){
-        if (cityName.replace(name, newCity) != null){
-            System.out.println("Updated: " + name + " -> " + newCity);
+    //update the value for a given existing key
+    public void replaceAValueForAGivenKey(String key, String newValue, HashMap<String, String> hashMapParam){
+        if (hashMapParam.replace(key, newValue) != null){
+            System.out.println("Updated: " + key + " -> " + newValue);
         }
         else {
-            System.out.println("City with name " + name + " not found");
+            System.out.println("Value with key " + key + " not found");
         }
     }
 
-    //add a value if the name doesn't already exist
-    public void putIfAbsentCity(String name, String city){
-        if (cityName.putIfAbsent(name, city) != null){
-            System.out.println("City with: " + name + " already exists so it will not be added");
+    //add a value if the key doesn't already exist
+    public void putIfAbsentKey(String key, String value, HashMap<String, String> hashMapParam){
+        if (hashMapParam.putIfAbsent(key, value) != null){
+            System.out.println("Key with: " + key + " already exists so it will not be added");
         }
         else{
-            System.out.println("New city: " + name + " -> " + city + " was added") ;
+            System.out.println("New value: " + key + " -> " + value + " was added") ;
         }
     }
 
 
-    //display the list with all cities
-    public void displayCities()
+    //display the key-value pairs from a HashMap
+    public void displayAllKeyValuePairs(HashMap<String, String> hasMapParam)
     {
-        for (String name : cityName.keySet()){
-            System.out.println(name + " -> " + cityName.get(name));
+        for (String key : hasMapParam.keySet()){
+            System.out.println(key + " -> " + hasMapParam.get(key));
         }
     }
 
-    public void displayCitiesWithEntrySet(){
-        System.out.println("Cities in the HashMap: ");
-//        for (Map.Entry<String, String> entry : cityName.entrySet()){
-//            System.out.println(entry.getKey() + " -> " + entry.getValue());
-//        }
-
-       // cityName.forEach((nume, city) -> System.out.println(nume + " -> " + city));
-
-        cityName.entrySet().forEach(entry ->
+    public void displayAllPairsWithEntrySet(HashMap<String, String> hashMapParam){
+        System.out.println("Pairs in the HashMap: ");
+        hashMapParam.entrySet().forEach(entry ->
                 System.out.println(entry.getKey() + " -> " + entry.getValue())
         );
     }
 
     // 1st method using a for-each loop
-    public void iterateUsingForEach1(){
+    public void iterateUsingForEach1(HashMap<String, String> hashMapParam){
         System.out.println("Iterating using for-each loop method 1: ");
-        for (Map.Entry<String, String> entry : cityName.entrySet()){
+        for (Map.Entry<String, String> entry : hashMapParam.entrySet()){
             System.out.println("Key: " + entry.getKey() + " , " + "Value: " + entry.getValue());
         }
     }
 
     //2nd method
-    public void iterateUsingForEach2(){
+    public void iterateUsingForEach2(HashMap<String, String> hashMapParam){
         System.out.println("Iterating using for-each loop method 2:");
-        cityName.entrySet().forEach(entry ->
+        hashMapParam.entrySet().forEach(entry ->
                 System.out.println("Key: " + entry.getKey() + " , " + "Value: " + entry.getValue())
         );
     }
 
     //3rd method
-    public void iterateUsingForEachWithLoopInside(){
+    public void iterateUsingForEachWithLoopInside(HashMap<String, String> hashMapParam){
         System.out.println("Iterating using entrySet() and forEach() but with a internal loop:");
-        cityName.entrySet().forEach(entry ->{
+        hashMapParam.entrySet().forEach(entry ->{
             for (int i=0; i<1; i++){ //it will run once for each key-value pair
                 System.out.println("Key: " + entry.getKey() + " , " + "Value: " + entry.getValue());
             }
@@ -99,55 +96,85 @@ public class TemaSession4_HashMap {
     }
 
     //1st method using a lambda expression
-    public void iterationUsingLambdaForEach(){
+    public void iterationUsingLambdaForEach(HashMap<String, String> hashMapParam){
         System.out.println("Iterating using lambda with forEach():");
-        cityName.forEach((nume, city) -> System.out.println("Key: " + nume + " , " + "Value: " + city));
+        hashMapParam.forEach((key, value) -> System.out.println("Key: " + key + " , " + "Value: " + value));
     }
 
     //2nd method using lambda expression
-    public void iterationUsingLambda(){
+    public void iterationUsingLambda(HashMap<String, String> hashMapParam){
         System.out.println("Iteration using lambda:");
-        cityName.forEach((nume, city) ->{
-            System.out.println("Display key: " + nume);
-            System.out.println("Display value: " + city);
+        hashMapParam.forEach((key, value) ->{
+            System.out.println("Display key: " + key);
+            System.out.println("Display value: " + value);
         });
     }
 
     public static void main(String[] args) {
-        TemaSession4_HashMap cityName = new TemaSession4_HashMap();
+        TemaSession4_HashMap object = new TemaSession4_HashMap();
 
-        //add cities
-        cityName.addNewCity("CHI", "Chicago");
-        cityName.addNewCity("NY", "New York");
-        cityName.addNewCity("LA", "Los Angeles");
+        //calls for all methods/functions for the HashMap with Cities and Names
+        object.addNewKeyValuePair("CHI", "Chicago", cityName);
+        object.addNewKeyValuePair("NY", "New York", cityName);
+        object.addNewKeyValuePair("LA", "Los Angeles", cityName);
 
-//        System.out.println("City for key 'NY': " + cityName.returnCity("NY"));
-//        System.out.println("City for key 'WDC': " + cityName.returnCity("WDC"));
-//
-//        System.out.println("Is there a city for the given name? " + cityName.checkIfANameExists("NY"));
-//        System.out.println("Is there a city for the given name? " + cityName.checkIfANameExists("MI"));
-//
-//        cityName.removeANameCity("NY", "New York");
-//        cityName.displayCities();
-//
-//        cityName.replaceACityForName("LA", "San Francisco"); //updating an existing name/key
-//        cityName.replaceACityForName("SF", "San Diego"); //trying to update a name/key which doesn't exist
+        System.out.println("City for key 'NY': " + object.returnValue("NY", cityName));
+        System.out.println("City for key 'WDC': " + object.returnValue("WDC", cityName));
 
-//        cityName.displayCities();
-//
-//        cityName.putIfAbsentCity("WDC", "Washington DC");
-//        cityName.putIfAbsentCity("CHI", "Chicago");
-//        cityName.displayCities();
+        System.out.println("Is there a city for the given name? " + object.checkIfAKeyExists("NY", cityName));
+        System.out.println("Is there a city for the given name? " + object.checkIfAKeyExists("MI", cityName));
 
-         // cityName.displayCitiesWithEntrySet();
+        object.removeAPairKeyValue("NY", "New York", cityName);
+        object.displayAllKeyValuePairs(cityName);
 
-          //calling iteration methods
-        //cityName.iterateUsingForEach1();
-       // cityName.iterateUsingForEach2();
-        //cityName.iterationUsingReference();
-        //cityName.iterateUsingForEachWithLoopInside();
-        //cityName.iterationUsingLambdaForEach();
-        cityName.iterationUsingLambda();
+        object.replaceAValueForAGivenKey("LA", "San Francisco", cityName); //updating an existing name/key
+        object.replaceAValueForAGivenKey("SF", "San Diego", cityName); //trying to update a name/key which doesn't exist
+
+        object.displayAllKeyValuePairs(cityName);
+
+        object.putIfAbsentKey("WDC", "Washington DC", cityName);
+        object.putIfAbsentKey("CHI", "Chicago", cityName);
+        object.displayAllKeyValuePairs(cityName);
+
+        object.displayAllPairsWithEntrySet(cityName);
+        object.iterateUsingForEach1(cityName);
+        object.iterateUsingForEach2(cityName);
+        object.iterateUsingForEachWithLoopInside(cityName);
+        object.iterationUsingLambdaForEach(cityName);
+        object.iterationUsingLambda(cityName);
+
+
+        //calls for all methods/functions for the HashMap with Products and Prices
+        object.addNewKeyValuePair("Faina", "3", productPrice);
+        object.addNewKeyValuePair("Ulei", "11", productPrice);
+        object.addNewKeyValuePair("Unt", "12", productPrice);
+        object.addNewKeyValuePair("Paine neagra", "9", productPrice);
+        object.displayAllKeyValuePairs(productPrice);
+
+        System.out.println("Price for key 'Unt': " + object.returnValue("Unt", productPrice));
+        System.out.println("Price for key 'Paine neagra': " + object.returnValue("Paine neagra", productPrice));
+
+        System.out.println("Is there a price for the given product? " + object.checkIfAKeyExists("Ulei", productPrice));
+        System.out.println("Is there a price for the given product? " + object.checkIfAKeyExists("Unt", productPrice));
+
+        object.removeAPairKeyValue("Faina", "3", productPrice);
+        object.displayAllKeyValuePairs(productPrice);
+
+        object.replaceAValueForAGivenKey("Ulei", "Otet", productPrice); //updating an existing name/key
+        object.replaceAValueForAGivenKey("Biscuiti", "9", productPrice); //trying to update a name/key which doesn't exist
+
+        object.displayAllKeyValuePairs(productPrice);
+
+        object.putIfAbsentKey("Ulei", "12", productPrice);
+        object.putIfAbsentKey("Cascaval", "30", productPrice);
+        object.displayAllKeyValuePairs(productPrice);
+
+        object.displayAllPairsWithEntrySet(productPrice);
+        object.iterateUsingForEach1(productPrice);
+        object.iterateUsingForEach2(productPrice);
+        object.iterateUsingForEachWithLoopInside(productPrice);
+        object.iterationUsingLambdaForEach(productPrice);
+        object.iterationUsingLambda(productPrice);
 
     }
 }
