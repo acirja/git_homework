@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MapsExercised {
+public class MapsExercises {
     //Maps este o interfata, implementari comune:
     //HashMap
     //TreeMap

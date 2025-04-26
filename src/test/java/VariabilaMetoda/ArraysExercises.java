@@ -36,5 +36,12 @@ public class ArraysExercises {
 
         nume[0] = "Andrada";
         System.out.println(Arrays.toString(nume));
+
+        //exercitii 30.01.2025
+
+        String[] listaNume = {"Ana", "Maria", "David"};
+        listaNume[0] = "Andreea";
+        Arrays.sort(listaNume);
+        System.out.println(Arrays.toString(listaNume));
     }
 }
