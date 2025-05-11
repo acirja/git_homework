@@ -21,7 +21,7 @@ public class CommonPage { //sub Menu page (meniul gri de unde putem accesa Eleme
     //identificam web elementele specifice pentru sub-meniul gri
     // WebElement menuElement = driver.findElement(By.cssSelector(".category-cards"));
     @FindBy(xpath = "//span[@class='text']")
-    List<WebElement> subMenuElement;
+    private List<WebElement> subMenuElement;
 
     public CommonPage(WebDriver driver) {
         this.driver = driver;

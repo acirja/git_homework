@@ -1,28 +1,20 @@
 package Tests_session_intermediate_module;
 
-import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.PracticeFormPage;
 import SharedData.SharedData;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeFormTest extends SharedData {
    // WebDriver driver;
-    ElementsMethods elementsMethods;
-    JavaScriptMethods js;
+    //ElementsMethods elementsMethods;
+    //JavaScriptMethods js;
     HomePage homePage;
     CommonPage commonPage;
-
     PracticeFormPage  practiceFormPage;
 
     @Test
@@ -38,7 +30,6 @@ public class PracticeFormTest extends SharedData {
 
         homePage = new HomePage(getDriver());
         commonPage = new CommonPage(getDriver());
-
         practiceFormPage = new PracticeFormPage(getDriver());
 
 

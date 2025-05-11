@@ -15,13 +15,13 @@ public class FramesPage extends CommonPage{
 //    JavaScriptMethods javascriptHelpers;
 //    FramesMethods framesMethods;
     @FindBy(id = "frame1")
-    WebElement frame1Element;
+    private WebElement frame1Element;
     @FindBy(id = "sampleHeading")
-    WebElement sampleHeadingFromFrame1Element;
+    private WebElement sampleHeadingFromFrame1Element;
     @FindBy(id = "frame2")
-    WebElement frame2Element;
+    private WebElement frame2Element;
     @FindBy(id = "sampleHeading")
-    WebElement sampleHeadingFromFrame2Element;
+    private WebElement sampleHeadingFromFrame2Element;
 
     public FramesPage(WebDriver driver) {
         super(driver);

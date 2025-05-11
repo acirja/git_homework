@@ -20,10 +20,10 @@ public class HomePage extends CommonPage{
 //    JavaScriptMethods js;
 
     @FindBy(xpath = "//h5")
-    List<WebElement> menuElement;
+    private List<WebElement> menuElement;
 
     @FindBy(xpath ="//p[text()='Consent']")
-    WebElement consentElement;
+    private WebElement consentElement;
 
 //    public HomePage(WebDriver driver) {
 //        this.driver = driver;

@@ -13,13 +13,13 @@ public class BrowserWindowsPage extends CommonPage {
 //    ElementsMethods elementsMethods;
 //    WindowsMethods windowsMethods;
     @FindBy(id = "tabButton")
-    WebElement newTabButtonElement;
+    private WebElement newTabButtonElement;
     @FindBy(id = "sampleHeading")
-    WebElement sampleHeadingFromNewTabElement;
+    private  WebElement sampleHeadingFromNewTabElement;
     @FindBy(id = "windowButton")
-    WebElement newWindowButtonElement;
+    private WebElement newWindowButtonElement;
     @FindBy(id = "sampleHeading")
-    WebElement sampleHeadingFromNewWindowElement;
+    private WebElement sampleHeadingFromNewWindowElement;
 
     public BrowserWindowsPage(WebDriver driver) {
         super(driver);

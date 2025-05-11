@@ -1,30 +1,30 @@
 package Tests_session_intermediate_module;
 
-import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
 import SharedData.SharedData;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.SourceType;
 
 import java.util.List;
 
 public class RecursionTest extends SharedData {
     //WebDriver driver;
-    ElementsMethods elementsMethods;
-    JavaScriptMethods js;
+//    ElementsMethods elementsMethods;
+//    JavaScriptMethods js;
     HomePage homePage;
     CommonPage commonPage;
 
     @Test
     public void parcurgereLista() {
+        homePage = new HomePage(getDriver());
+        commonPage = new CommonPage(getDriver());
+
+        homePage.goToDesiredMenu("Interactions");
+        commonPage.goToDesiredSubMenu("Sortable");
+
 //        //deschidem un browser de Chrome
 //        driver = new ChromeDriver();
 //
@@ -52,23 +52,25 @@ public class RecursionTest extends SharedData {
 
 
 
-//        Actions actions = new Actions(driver);
-//        List<WebElement> listElement = driver.findElements(By.xpath("//div[id='demo-tabpane-list]//div[@class='list-group-item list]"));
-//        for (int i=0; i<listElement.size()-1; i++){
-//            WebElement currentElement = listElement.get(i);
-//            WebElement nextElement = listElement.get(i+1);
-//            System.out.println("Element: " + currentElement.getText());
-//            actions.clickAndHold(currentElement)
-//                    .moveToElement(nextElement)
-//                    .release()
-//                    .build()
-//                    .perform();
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e){
-//                e.printStackTrace();
-//            }
-//        }
+        Actions actions = new Actions(getDriver());
+        //List<WebElement> listElement = getDriver().findElements(By.xpath("//div[id='demo-tabpane-list]//div[@class='list-group-item list]"));
+        String listElementsXPath = "//div[@id='demo-tabpane-list']//div[@class='list-group-item list-group-item-action']";
+        List<WebElement> elementsList = getDriver().findElements(By.xpath(listElementsXPath));
+        for (int i=0; i<elementsList.size()-1; i++){
+            WebElement currentElement = elementsList.get(i);
+            WebElement nextElement = elementsList.get(i+1);
+            System.out.println("Element: " + currentElement.getText());
+            actions.clickAndHold(currentElement)
+                    .moveToElement(nextElement)
+                    .release()
+                    .build()
+                    .perform();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+       }
     }
 
 }

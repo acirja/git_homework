@@ -4,6 +4,7 @@ import HelperMethods.ElementsMethods;
 import HelperMethods.FramesMethods;
 import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
+import Pages.FramesPage;
 import Pages.HomePage;
 import SharedData.SharedData;
 import org.junit.jupiter.api.Test;
@@ -16,11 +17,12 @@ import static java.lang.Thread.sleep;
 
 public class FramesTest extends SharedData {
     //WebDriver driver;
-    ElementsMethods elementsMethods;
+    //ElementsMethods elementsMethods;
     // javaScriptMethods;
-    FramesMethods framesMethods;
     HomePage homePage;
     CommonPage commonPage;
+    FramesPage framesPage;
+    FramesMethods framesMethods;
 
     @Test
     public void automationMethod(){
@@ -35,10 +37,11 @@ public class FramesTest extends SharedData {
 
         //javaScriptMethods =  new JavaScriptMethods(driver);
         //elementsMethods = new ElementsMethods(driver);
-        framesMethods = new FramesMethods(getDriver());
+
         homePage = new HomePage(getDriver());
         commonPage = new CommonPage(getDriver());
-
+        framesMethods = new FramesMethods(getDriver());
+        framesPage = new FramesPage(getDriver());
         //facem un scrol;
 //        JavascriptExecutor js = (JavascriptExecutor) driver; refactorizam
 //        js.executeScript("window.scrollBy(0,400)");
@@ -55,31 +58,42 @@ public class FramesTest extends SharedData {
 //        elementsMethods.clickOnElement(frameElement);
         commonPage.goToDesiredSubMenu("Frames");
 
-        WebElement frame1Element = getDriver().findElement(By.id("frame1"));
-        //driver.switchTo().frame(frame1Element); refactorizam
-        framesMethods.switchFrame(frame1Element);
+        //Frame 1
+        framesPage.interactWithFrame1();
 
-        WebElement sampleHeadingFrameElement = getDriver().findElement(By.id("sampleHeading"));
-        //System.out.println("textul din new frame este: " + sampleHeadingFrameElement.getText()); refactorizam
-        elementsMethods.displayContentofElement(sampleHeadingFrameElement);
-
-        //driver.switchTo().defaultContent(); //revenim cu focusul din frame in pagina principala
+        //revenim cu focusul pe pagina principala
         framesMethods.switchToMainContent();
 
-        //webelement pentru cel de-al doilea frame de pe pagina
+        //Frame 2
+        framesPage.interactWithFrame2();
 
-        WebElement frame2Element = getDriver().findElement(By.id("frame2"));
-        //driver.switchTo().frame(frame2Element); refactorizam
-        framesMethods.switchFrame(frame2Element);
-        WebElement sampleHeadingFrame2Element = getDriver().findElement(By.id("sampleHeading"));
-        elementsMethods.displayContentofElement(sampleHeadingFrame2Element);
+        framesMethods.switchToMainContent();
+
+//        WebElement frame1Element = getDriver().findElement(By.id("frame1"));
+//        //driver.switchTo().frame(frame1Element); refactorizam
+//        framesMethods.switchFrame(frame1Element);
+//
+//        WebElement sampleHeadingFrameElement = getDriver().findElement(By.id("sampleHeading"));
+//        //System.out.println("textul din new frame este: " + sampleHeadingFrameElement.getText()); refactorizam
+//        elementsMethods.displayContentofElement(sampleHeadingFrameElement);
+//
+//        //driver.switchTo().defaultContent(); //revenim cu focusul din frame in pagina principala
+//        framesMethods.switchToMainContent();
+//
+//        //webelement pentru cel de-al doilea frame de pe pagina
+//
+//        WebElement frame2Element = getDriver().findElement(By.id("frame2"));
+//        //driver.switchTo().frame(frame2Element); refactorizam
+//        framesMethods.switchFrame(frame2Element);
+//        WebElement sampleHeadingFrame2Element = getDriver().findElement(By.id("sampleHeading"));
+//        elementsMethods.displayContentofElement(sampleHeadingFrame2Element);
 
         //js.executeScript("window.scrollBy(200,200)");
 
 //        javaScriptMethods.scrollDown(200);
 //        javaScriptMethods.scrollRight(200);
 
-        framesMethods.switchToMainContent();
+//        framesMethods.switchToMainContent();
 
         //Thread.sleep(5000); //ca sa apucam sa vedem ce se intampla la rulare
        // driver.quit();
