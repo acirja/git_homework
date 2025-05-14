@@ -15,9 +15,9 @@ import java.time.Duration;
 import java.util.List;
 
 public class ElementsMethods {
-    WebDriver driver;
-    JavascriptExecutor js;
-    Actions actions;
+    private WebDriver driver;
+    private JavascriptExecutor js;
+    private Actions actions;
 
     public ElementsMethods(WebDriver driver) {
         this.driver = driver;

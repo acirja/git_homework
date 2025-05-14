@@ -20,10 +20,10 @@ public class BrowserWindowTab extends SharedData {
     //WebDriver driver;
 //    JavaScriptMethods javaScriptMethods;
 //    ElementsMethods elementsMethods;
-    HomePage homePage;
-    CommonPage commonPage;
-    WindowsMethods windowsMethods;
-    BrowserWindowsPage browserWindowsPage;
+    private HomePage homePage;
+    private CommonPage commonPage;
+    private WindowsMethods windowsMethods;
+    private BrowserWindowsPage browserWindowsPage;
 
     @Test
     public void automationMethod(){

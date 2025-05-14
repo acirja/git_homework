@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class BrowserWindowsPage extends CommonPage {
+public class BrowserWindowsPage extends CommonPage{
 //    WebDriver driver;
 //    ElementsMethods elementsMethods;
 //    WindowsMethods windowsMethods;
@@ -32,20 +32,22 @@ public class BrowserWindowsPage extends CommonPage {
 //        PageFactory.initElements(driver, this);
 //    }
 
-    public void interactWithTheNewTab() {
+    public void interactWithTheNewTab(){
         // New Tab:
         elementsMethods.clickOnElement(newTabButtonElement);
         windowsMethods.switchToOpenedTab();
         Assert.assertEquals(sampleHeadingFromNewTabElement.getText(), "This is a sample page");
         windowsMethods.closeTab();
+        windowsMethods.switchToMain();
     }
 
-    public void interactWithTheNewWindow() {
+    public void interactWithTheNewWindow(){
         // New Window:
         elementsMethods.clickOnElement(newWindowButtonElement);
         windowsMethods.switchToOpenedWindow();
         Assert.assertEquals(sampleHeadingFromNewWindowElement.getText(), "This is a sample page");
         windowsMethods.closeWindow();
+        windowsMethods.switchToMain();
     }
 
 }

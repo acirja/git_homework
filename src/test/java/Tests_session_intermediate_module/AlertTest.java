@@ -20,9 +20,9 @@ public class AlertTest extends SharedData {
     //JavaScriptMethods js;
 //    AlertsMethods alertMethods;
 
-    HomePage homePage;
-    CommonPage commonPage;
-    AlertsPage alertsPage;
+    private HomePage homePage;
+    private CommonPage commonPage;
+    private AlertsPage alertsPage;
 
     @Test
     public void automationMethod(){

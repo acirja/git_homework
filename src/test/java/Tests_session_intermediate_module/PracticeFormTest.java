@@ -13,9 +13,9 @@ public class PracticeFormTest extends SharedData {
    // WebDriver driver;
     //ElementsMethods elementsMethods;
     //JavaScriptMethods js;
-    HomePage homePage;
-    CommonPage commonPage;
-    PracticeFormPage  practiceFormPage;
+    private HomePage homePage;
+    private CommonPage commonPage;
+    private PracticeFormPage  practiceFormPage;
 
     @Test
     public void automationMethod(){
@@ -64,7 +64,6 @@ public class PracticeFormTest extends SharedData {
         practiceFormPage.completeDateOfBirth(1999, 1, 21);
 
         //Subjects
-        practiceFormPage.completeSubject("Maths");
         List<String> subjects = new ArrayList<>();
         subjects.add("Maths");
         subjects.add("English");

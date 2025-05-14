@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AlertsPage extends CommonPage {
+public class AlertsPage extends CommonPage{
 //    WebDriver driver;
 //    ElementsMethods elementsMethods;
 //    AlertsMethods alertMethods;
@@ -21,7 +21,7 @@ public class AlertsPage extends CommonPage {
     @FindBy(id = "promtButton")
     private WebElement alertPromptButtonElement;
 
-    public AlertsPage(WebDriver driver) {
+    public AlertsPage(WebDriver driver){
         super(driver);
     }
 
@@ -32,13 +32,13 @@ public class AlertsPage extends CommonPage {
 //        PageFactory.initElements(driver, this);
 //    }
 
-    public void interactWithSimpleAlert() {
+    public void interactWithSimpleAlert(){
         // Alert simplu: Doar Text si OK button
         elementsMethods.clickOnElement(alertOkButtonElement);
         alertsMethods.interactWithAlertOk();
     }
 
-    public void interactWithDelayedAlert() {
+    public void interactWithDelayedAlert(){
         // Alert cu delay la afisare
         elementsMethods.clickOnElement(delayedAlertButtonElement);
         alertsMethods.interactAlertWithDelay();

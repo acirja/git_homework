@@ -9,21 +9,21 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class CommonPage { //sub Menu page (meniul gri de unde putem accesa Elements, Forms, Alert, Frame&Windows.. etc
-    WebDriver driver;
-    ElementsMethods elementsMethods;
-    JavaScriptMethods js;
-    AlertsMethods alertsMethods;
-    Actions actions;
-    FramesMethods framesMethods;
-    WindowsMethods windowsMethods;
+public class CommonPage{ //sub Menu page (meniul gri de unde putem accesa Elements, Forms, Alert, Frame&Windows.. etc
+    protected WebDriver driver;
+    protected ElementsMethods elementsMethods;
+    protected JavaScriptMethods js;
+    protected AlertsMethods alertsMethods;
+    protected Actions actions;
+    protected FramesMethods framesMethods;
+    protected WindowsMethods windowsMethods;
 
     //identificam web elementele specifice pentru sub-meniul gri
     // WebElement menuElement = driver.findElement(By.cssSelector(".category-cards"));
     @FindBy(xpath = "//span[@class='text']")
     private List<WebElement> subMenuElement;
 
-    public CommonPage(WebDriver driver) {
+    public CommonPage(WebDriver driver){
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
         this.js = new JavaScriptMethods(driver);

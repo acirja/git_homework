@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public class AssertMethods {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public AssertMethods(WebDriver driver) {
         this.driver = driver;

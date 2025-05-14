@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AlertsMethods {
-    WebDriver driver;
+    private WebDriver driver;
 
     public AlertsMethods(WebDriver driver) {
         this.driver = driver;

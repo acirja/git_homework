@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindowsMethods {
-    WebDriver driver;
-    JavascriptExecutor js;
+    private WebDriver driver;
 
     public WindowsMethods(WebDriver driver) {
         this.driver = driver;

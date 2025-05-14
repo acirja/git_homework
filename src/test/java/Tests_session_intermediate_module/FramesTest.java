@@ -19,10 +19,10 @@ public class FramesTest extends SharedData {
     //WebDriver driver;
     //ElementsMethods elementsMethods;
     // javaScriptMethods;
-    HomePage homePage;
-    CommonPage commonPage;
-    FramesPage framesPage;
-    FramesMethods framesMethods;
+    private HomePage homePage;
+    private CommonPage commonPage;
+    private FramesPage framesPage;
+    private FramesMethods framesMethods;
 
     @Test
     public void automationMethod(){

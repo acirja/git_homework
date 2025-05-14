@@ -14,8 +14,8 @@ public class RecursionTest extends SharedData {
     //WebDriver driver;
 //    ElementsMethods elementsMethods;
 //    JavaScriptMethods js;
-    HomePage homePage;
-    CommonPage commonPage;
+    private HomePage homePage;
+    private CommonPage commonPage;
 
     @Test
     public void parcurgereLista() {

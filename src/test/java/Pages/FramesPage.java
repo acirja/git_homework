@@ -34,16 +34,18 @@ public class FramesPage extends CommonPage{
 //        PageFactory.initElements(driver, this);
 //    }
 
-    public void interactWithFrame1() {
+    public void interactWithFrame1(){
         // Frame 1:
         js.scrollDown(400);
         framesMethods.switchFrame(frame1Element);
         Assert.assertEquals(sampleHeadingFromFrame1Element.getText(), "This is a sample page");
+        framesMethods.switchToMainContent();
     }
 
-    public void interactWithFrame2() {
+    public void interactWithFrame2(){
         // Frame 2:
         framesMethods.switchFrame(frame2Element);
         Assert.assertEquals(sampleHeadingFromFrame2Element.getText(), "This is a sample page");
+        framesMethods.switchToMainContent();
     }
 }
