@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="RegressionSuite" parallel="classes" thread-count="5">
+    <test name="RegressionSuite" >
+<!--        <classes>-->
+<!--            <class name = "Tests_session_intermediate_module.AlertTest" />-->
+<!--        </classes>-->
+
+        <packages>
+            <package name = "Tests.*" />
+        </packages>
+    </test><!-- Test -->
+</suite><!-- Suite -->

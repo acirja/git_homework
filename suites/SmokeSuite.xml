@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="FeatureSuite" parallel="classes" thread-count="5">
-    <test name="FeatureSuite" >
+<suite name="SmokeSuite" parallel="classes" thread-count="5">
+    <test name="SmokeSuite" >
         <classes>
             <class name = "Tests_session_intermediate_module.AlertTest" />
+            <class name = "Tests_session_intermediate_module.FramesTest" />
         </classes>
 
 <!--        <packages>-->
-<!--            <package name = "Tests_session_intermediate_module.*" />-->
+<!--            <package name = "Tests.*" />-->
 <!--        </packages>-->
     </test><!-- Test -->
 </suite><!-- Suite -->
