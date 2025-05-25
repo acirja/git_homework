@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SanitySuite" parallel="classes" thread-count="5">
+    <test name="SanitySuite" >
+        <classes>
+            <class name = "Tests_session_intermediate_module.AlertTest" />
+            <class name = "Tests_session_intermediate_module.PracticeFormTest" />
+            <class name = "Tests_session_intermediate_module.WebTableTest" />
+        </classes>
+
+<!--        <packages>-->
+<!--            <package name = "Tests.*" />-->
+<!--        </packages>-->
+    </test><!-- Test -->
+</suite><!-- Suite -->
