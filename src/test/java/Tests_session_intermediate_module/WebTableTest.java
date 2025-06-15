@@ -5,7 +5,7 @@ import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.WebTablesPage;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ import java.util.List;
 
 import static java.nio.file.Files.size;
 
-public class WebTableTest extends SharedData {
+public class WebTableTest extends Hooks {
     //WebDriver driver;
 //    private ElementsMethods elementsMethods;
 //    private JavaScriptMethods js;
@@ -27,17 +27,6 @@ public class WebTableTest extends SharedData {
 
     @Test
     public void automationMethod() throws  InterruptedException{
-//        //deschidem un browser de Chrome
-//        driver = new ChromeDriver();
-//
-//        //facem browserul in modul maximize
-//        driver.manage().window().maximize();
-//
-//        //accesam o pagina web
-//        driver.get("https://demoqa.com");
-
-//        elementsMethods = new ElementsMethods(getDriver());
-//        js = new JavaScriptMethods(getDriver());
         homePage = new HomePage(getDriver());
         commonPage = new CommonPage(getDriver());
         webTablesPage = new WebTablesPage(getDriver());

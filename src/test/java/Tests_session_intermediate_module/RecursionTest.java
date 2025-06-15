@@ -2,7 +2,7 @@ package Tests_session_intermediate_module;
 
 import Pages.CommonPage;
 import Pages.HomePage;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-public class RecursionTest extends SharedData {
+public class RecursionTest extends Hooks {
     //WebDriver driver;
 //    ElementsMethods elementsMethods;
 //    JavaScriptMethods js;

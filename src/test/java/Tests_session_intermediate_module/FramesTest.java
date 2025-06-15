@@ -6,7 +6,7 @@ import HelperMethods.JavaScriptMethods;
 import Pages.CommonPage;
 import Pages.FramesPage;
 import Pages.HomePage;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static java.lang.Thread.sleep;
 
-public class FramesTest extends SharedData {
+public class FramesTest extends Hooks {
     //WebDriver driver;
     //ElementsMethods elementsMethods;
     // javaScriptMethods;

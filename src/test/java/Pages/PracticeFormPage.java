@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.PracticeFormObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -81,16 +82,25 @@ public class PracticeFormPage extends CommonPage{
         super(driver);
     }
 
-    public void completeFirstRegionFromForm(String firstName, String lastName, String email, String address, String mobileNumber){
-        elementsMethods.fillElement(firstNameElement, firstName);
-        elementsMethods.fillElement(lastNameElement, lastName);
-        elementsMethods.fillElement(emailElement, email);
-        elementsMethods.fillElement(addressElement, address);
-        elementsMethods.fillElement(mobileNumberElement, mobileNumber);
+
+    public void completeFirstRegionFromForm(PracticeFormObject practiceFormObject){
+        elementsMethods.fillElement(firstNameElement, practiceFormObject.getFirstName());
+        elementsMethods.fillElement(lastNameElement, practiceFormObject.getLastName());
+        elementsMethods.fillElement(emailElement, practiceFormObject.getEmail());
+        elementsMethods.fillElement(addressElement, practiceFormObject.getAddress());
+        elementsMethods.fillElement(mobileNumberElement, practiceFormObject.getMobile());
     }
 
-    public void completeGender(String gender){
-        switch (gender){
+//    public void completeFirstRegionFromForm(String firstName, String lastName, String email, String address, String mobileNumber){
+//        elementsMethods.fillElement(firstNameElement, firstName);
+//        elementsMethods.fillElement(lastNameElement, lastName);
+//        elementsMethods.fillElement(emailElement, email);
+//        elementsMethods.fillElement(addressElement, address);
+//        elementsMethods.fillElement(mobileNumberElement, mobileNumber);
+//    }
+
+    public void completeGender(PracticeFormObject practiceFormObject){
+        switch (practiceFormObject.getGender()){
             case "Male" : elementsMethods.clickOnElement(maleGenderElement);
             break;
 
@@ -107,17 +117,17 @@ public class PracticeFormPage extends CommonPage{
         elementsMethods.fillElement(subjects, value);
     }
 
-    public void completeSubjectWithList(List<String> list){
+    public void completeSubjectWithList(PracticeFormObject practiceFormObject){
         elementsMethods.clickOnElement(subjects);
-        elementsMethods.fillMultipleValues(subjects, list);
+        elementsMethods.fillMultipleValues(subjects, practiceFormObject.getSubjects());
     }
 
-    public void completeHobbies(List<String> hobbies){
+    public void completeHobbies(PracticeFormObject practiceFormObject){
         List<WebElement> hobbiesElement = new ArrayList<>();
         hobbiesElement.add(sportHobbyElement);
         hobbiesElement.add(readingHobbyElement);
         hobbiesElement.add(musicHobbyElement);
-        elementsMethods.clickMultipleValues(hobbiesElement, hobbies);
+        elementsMethods.clickMultipleValues(hobbiesElement, practiceFormObject.getHobbies());
         js.scrollDown(400);
     }
 
@@ -135,12 +145,16 @@ public class PracticeFormPage extends CommonPage{
         elementsMethods.uploadPicture(uploadPictureElement);
     }
 
-    public void completeStateAndCity(String state, String city){
-        js.forceClick(stateElement);
-        elementsMethods.fillElementFollowedByEnter(stateElement, state);
+    public void completeStateAndCity(PracticeFormObject practiceFormObject){
+        //js.forceClick(stateElement);
+        elementsMethods.clickOnElement(stateElement);
+        elementsMethods.waitVisiblityElement(stateElement);
+        elementsMethods.fillElementFollowedByEnter(stateElement, practiceFormObject.getState());
 
-        js.forceClick(cityElement);
-        elementsMethods.fillElementFollowedByEnter(cityElement, city);
+        //js.forceClick(cityElement);
+        elementsMethods.clickOnElement(cityElement);
+        elementsMethods.waitVisiblityElement(cityElement);
+        elementsMethods.fillElementFollowedByEnter(cityElement, practiceFormObject.getCity());
     }
 
     public void submitForm(){

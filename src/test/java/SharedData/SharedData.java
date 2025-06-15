@@ -3,6 +3,7 @@ package SharedData;
 import SharedData.browser.BrowserFactory;
 import configFile.ConfigFile;
 import configFile.configNode.ConfigurationNode;
+import logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -13,9 +14,10 @@ import java.time.Duration;
 public class SharedData {
     private WebDriver driver;
 
-    @BeforeMethod
+   // @BeforeMethod //nu mai avem nevoie pentru ca o sa le manage-uim in clase de Hooks
     public void prepareBrowser(){
         driver = new BrowserFactory().getBrowserFactory();
+        LoggerUtility.infoLog("The browser was opened with success");
 
 //        ConfigurationNode configurationNode = ConfigFile.createConfigNode(ConfigurationNode.class);
 //        //configurationNode.driverConfigNode.localBrowser;
@@ -35,9 +37,10 @@ public class SharedData {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void clearBrowser(){
         driver.quit();
+        LoggerUtility.endTestCase("The browser was closed with success");
     }
 
     public WebDriver getDriver() {

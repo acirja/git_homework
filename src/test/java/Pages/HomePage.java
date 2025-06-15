@@ -4,6 +4,7 @@ import HelperMethods.ElementsMethods;
 import HelperMethods.FramesMethods;
 import HelperMethods.JavaScriptMethods;
 import jdk.dynalink.linker.LinkerServices;
+import logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class HomePage extends CommonPage{
     //metode si web elments specifice pentru Home Page
@@ -43,8 +45,15 @@ public class HomePage extends CommonPage{
 
     //cream metode specifice pentru pagina
     public void goToDesiredMenu(String menu){
-        elementsMethods.clickOnElement(consentElement);
+        try{
+            LoggerUtility.infoLog("The user clicks on consentElement");
+            elementsMethods.clickOnElement(consentElement);
+        } catch (NoSuchElementException ignored){}
+
         js.scrollDown(400);
+        LoggerUtility.infoLog("The user clicks scrools down the page");
+
         elementsMethods.selectElementFromListByText(menuElement, menu);
+        LoggerUtility.infoLog("The user selects from menu the option with the value: " + menu);
     }
 }

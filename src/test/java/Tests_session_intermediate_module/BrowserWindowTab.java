@@ -6,7 +6,7 @@ import HelperMethods.WindowsMethods;
 import Pages.BrowserWindowsPage;
 import Pages.CommonPage;
 import Pages.HomePage;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 
-public class BrowserWindowTab extends SharedData {
+public class BrowserWindowTab extends Hooks {
     //WebDriver driver;
 //    JavaScriptMethods javaScriptMethods;
 //    ElementsMethods elementsMethods;

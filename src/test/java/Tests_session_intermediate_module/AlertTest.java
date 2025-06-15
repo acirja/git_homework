@@ -6,7 +6,7 @@ import HelperMethods.JavaScriptMethods;
 import Pages.AlertsPage;
 import Pages.CommonPage;
 import Pages.HomePage;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class AlertTest extends SharedData {
+public class AlertTest extends Hooks {
     //WebDriver driver; dispare pentru ca deja exista in clasa parinte
 //    ElementsMethods elementsMethods;
     //JavaScriptMethods js;

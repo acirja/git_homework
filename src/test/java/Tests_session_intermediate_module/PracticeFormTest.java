@@ -1,15 +1,18 @@
 package Tests_session_intermediate_module;
 
+import HelperMethods.JavaScriptMethods;
+import ObjectData.PracticeFormObject;
 import Pages.CommonPage;
 import Pages.HomePage;
 import Pages.PracticeFormPage;
-import SharedData.SharedData;
+import PropertyUtility.PropertyUtility;
+import SharedData.Hooks;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeFormTest extends SharedData {
+public class PracticeFormTest extends Hooks {
    // WebDriver driver;
     //ElementsMethods elementsMethods;
     //JavaScriptMethods js;
@@ -19,6 +22,16 @@ public class PracticeFormTest extends SharedData {
 
     @Test
     public void automationMethod(){
+
+         PropertyUtility propertyUtility = new PropertyUtility("PracticeFormTest");
+         PracticeFormObject practiceFormObject = new PracticeFormObject(propertyUtility.getData()); /// folosim datele din
+        //propertyUtility (adica din fisier) in obiectul practiceFormObject; salvam data de acolo, din fisier, ca
+        //proprietati ale obiectului curent
+
+        JavaScriptMethods javaScriptMethods = new JavaScriptMethods(getDriver());
+        javaScriptMethods.scrollDown(400);
+
+
 //        ///deschidem un browser de Chrome
 //        driver = new ChromeDriver();
 //
@@ -59,25 +72,27 @@ public class PracticeFormTest extends SharedData {
 //        elementsMethods.selectElementFromListByText(subElementList, "Practice Form");
 
         commonPage.goToDesiredSubMenu("Practice Form");
-        practiceFormPage.completeFirstRegionFromForm("Alina", "Popescu", "test@test.com", "Address: my address", "0744121212");
-        practiceFormPage.completeGender("Female");
+        practiceFormPage.completeFirstRegionFromForm(practiceFormObject);
+        //practiceFormPage.completeFirstRegionFromForm("Alina", "Popescu", "test@test.com", "Address: my address", "0744121212");
+
+        practiceFormPage.completeGender(practiceFormObject);
         practiceFormPage.completeDateOfBirth(1999, 1, 21);
 
         //Subjects
-        List<String> subjects = new ArrayList<>();
-        subjects.add("Maths");
-        subjects.add("English");
-        practiceFormPage.completeSubjectWithList(subjects);
+//        List<String> subjects = new ArrayList<>();
+//        subjects.add("Maths");
+//        subjects.add("English");
+        practiceFormPage.completeSubjectWithList(practiceFormObject);
 
         //Hobbies
-        List<String> hobbies = new ArrayList<>();
-        hobbies.add("Sports");
-        hobbies.add("Music");
-        hobbies.add("Reading");
-        practiceFormPage.completeHobbies(hobbies);
+//        List<String> hobbies = new ArrayList<>();
+//        hobbies.add("Sports");
+//        hobbies.add("Music");
+//        hobbies.add("Reading");
+        practiceFormPage.completeHobbies(practiceFormObject);
 
         practiceFormPage.uploadPicture();
-        practiceFormPage.completeStateAndCity("NCR", "Delhi");
+        practiceFormPage.completeStateAndCity(practiceFormObject);
 
         practiceFormPage.submitForm();
 
