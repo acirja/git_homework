@@ -15,13 +15,13 @@ import java.time.Duration;
 import java.util.List;
 
 public class ElementsMethods {
-    WebDriver driver;
-    JavascriptExecutor js;
-    Actions actions;
+    private WebDriver driver;
+    private JavascriptExecutor js;
+    private Actions actions;
 
     public ElementsMethods(WebDriver driver) {
         this.driver = driver;
-        js = (JavascriptExecutor) driver;
+        //js = (JavascriptExecutor) driver;
         this.actions = new Actions(driver);
     }
 
@@ -42,6 +42,7 @@ public class ElementsMethods {
         for (int i=0; i<elementsList.size(); i++){
             if (elementsList.get(i).getText().equals(value)){
                 clickOnElement(elementsList.get(i));
+                break;
             }
         }
     }
@@ -59,13 +60,6 @@ public class ElementsMethods {
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(text);
     }
-
-//    public void fillMultipleValues(WebElement element, List<WebElement>elementsList){
-//        String valueToFill = element.getText();
-//        for(int i=0; i<elementsList.size(); i++){
-//            element.sendKeys(valueToFill); //fill each element with the value from "element"
-//        }
-//    }
 
     public void fillMultipleValues(WebElement element, List<String>values){
         for (String value : values){
@@ -101,45 +95,5 @@ public class ElementsMethods {
         //definim un wait explicit ca sa astepte dupa alerta
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));    }
-
-    public void checkMultipleElementsByListOfValues(List<WebElement> elements, List<String> values){
-        for (String value : values){
-            for (WebElement element : elements){
-                if (element.getText().equals(value)){
-                    element.click();
-                }
-            }
-        }
-    }
-
-    public void changeElements(List<WebElement> elements){
-        for (WebElement element : elements){
-            element.click();
-        }
-    }
-
-//    public void changeElements(List<WebElement> list){
-//        for (int index = 0; index < list.size(); index++){
-//            Actions actions = new Actions(driver);
-//            WebElement element = list.get(index);
-//            WebElement nextElement = list.get(index++);
-//            printText(WebElement);
-//            actions.clickAndHold(element)
-//                    .moveToElement(nextElement)
-//                    .release()
-//                    .build()
-//                    .perform();
-//        }
-//        try{
-//            Thread.sleep(100000);
-//        }
-//        catch (InterruptedException e){
-//            e.printStackTrace();
-//        }
-//    }
-
-
-
-
 
 }

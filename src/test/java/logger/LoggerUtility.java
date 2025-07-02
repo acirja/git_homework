@@ -65,7 +65,7 @@ public class LoggerUtility {
             // loop for reading the contents of all the files
             // in the directory GeeksForGeeks
             for (String fileName : fileNames) {
-                System.out.println("Reading from " + fileName);
+               // System.out.println("Reading from " + fileName);
 
                 // create instance of file from Name of
                 // the file stored in string Array

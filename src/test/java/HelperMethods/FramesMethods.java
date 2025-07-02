@@ -15,10 +15,6 @@ public class FramesMethods {
         driver.switchTo().frame(element); //schimbam focusul pe un anumit Frame
     }
 
-//    public void switchDefaultContent(){
-//        driver.switchTo().defaultContent(); //ne mutam cu focusul pe pagina principala
-//    }
-
     public void switchToMainContent(){
         driver.switchTo().defaultContent(); //revenim cu focusul din frame in pagina principala
     }

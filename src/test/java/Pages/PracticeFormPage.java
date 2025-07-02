@@ -10,16 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeFormPage extends CommonPage{
-//    WebDriver driver;
-//    ElementsMethods elementsMethods;
-
-//    public PracticeFormPage(WebDriver driver){
-//        this.driver = driver;
-//        this.elementsMethods = new ElementsMethods(driver);
-//
-//        //asta e pentru partea de driver.findElement
-//        PageFactory.initElements(driver, this); //initializeaza elementele declarate mai jos cu @FindBy
-//    }
 
     @FindBy(id = "firstName")
     private WebElement firstNameElement;

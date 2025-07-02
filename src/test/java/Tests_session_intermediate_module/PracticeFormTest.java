@@ -7,15 +7,14 @@ import Pages.HomePage;
 import Pages.PracticeFormPage;
 import PropertyUtility.PropertyUtility;
 import SharedData.Hooks;
+import extendUtility.ExtendUtility;
+import extendUtility.ReportStep;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeFormTest extends Hooks {
-   // WebDriver driver;
-    //ElementsMethods elementsMethods;
-    //JavaScriptMethods js;
     private HomePage homePage;
     private CommonPage commonPage;
     private PracticeFormPage  practiceFormPage;
@@ -31,51 +30,23 @@ public class PracticeFormTest extends Hooks {
         JavaScriptMethods javaScriptMethods = new JavaScriptMethods(getDriver());
         javaScriptMethods.scrollDown(400);
 
-
-//        ///deschidem un browser de Chrome
-//        driver = new ChromeDriver();
-//
-//        //accesam o pagina web
-//        driver.get("https://demoqa.com/");
-//
-//        elementsMethods = new ElementsMethods(driver);//avem obiectul
-//        js = new JavaScriptMethods(driver);
-
         homePage = new HomePage(getDriver());
         commonPage = new CommonPage(getDriver());
         practiceFormPage = new PracticeFormPage(getDriver());
 
 
-//        WebElement elementFields = driver.findElement(By.xpath("//h5[text()='Forms']"));
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        //js.executeScript("window.scrollBy(0,400)");
-        //elementFields.click();
-
-        //inlocuim metoda click() de mai sus cu metoda scrisa universala scrisa in clasa MethodsElement
-       // elementsMethods.clickOnElement(elementFields);
-
-
-        //WebElement elementsTable = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-       // elementsTable.click();
-       // elementsMethods.clickOnElement(elementsTable);
-
-//        WebElement formsElement = driver.findElement(By.xpath("//h5[text()='Forms']"));
-//        elementsMethods.clickOnElement(formsElement);
-
-//        List<WebElement> elements = driver.findElements(By.xpath("//h5"));
-//        elementsMethods.selectElementFromListByText(elements, "Forms");
-
         homePage.goToDesiredMenu("Forms");
-
-//        List<WebElement> subElementList = driver.findElements(By.xpath("//span[@class='text']"));
-//        elementsMethods.selectElementFromListByText(subElementList, "Practice Form");
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user enters on Forms menu");
 
         commonPage.goToDesiredSubMenu("Practice Form");
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user enters on Practice form sub-menu");
+
         practiceFormPage.completeFirstRegionFromForm(practiceFormObject);
-        //practiceFormPage.completeFirstRegionFromForm("Alina", "Popescu", "test@test.com", "Address: my address", "0744121212");
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user fills the entire first region section");
+        //practiceFormPage.completeFirstRegionFrom("Alina", "Popescu", "test@test.com", "Address: my address", "0744121212");
 
         practiceFormPage.completeGender(practiceFormObject);
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user fills the gender section");
         practiceFormPage.completeDateOfBirth(1999, 1, 21);
 
         //Subjects
@@ -83,6 +54,7 @@ public class PracticeFormTest extends Hooks {
 //        subjects.add("Maths");
 //        subjects.add("English");
         practiceFormPage.completeSubjectWithList(practiceFormObject);
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user fills the subject section");
 
         //Hobbies
 //        List<String> hobbies = new ArrayList<>();
@@ -90,41 +62,15 @@ public class PracticeFormTest extends Hooks {
 //        hobbies.add("Music");
 //        hobbies.add("Reading");
         practiceFormPage.completeHobbies(practiceFormObject);
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user fills the hobbies section");
 
         practiceFormPage.uploadPicture();
         practiceFormPage.completeStateAndCity(practiceFormObject);
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user fills the state section");
 
         practiceFormPage.submitForm();
+        ExtendUtility.attachLog(ReportStep.PASS_STEP, "The user clicks on Submit");
 
-
-//        WebElement addFirstName = driver.findElement(By.id("firstName"));
-////        String addFirstNameValue = "Alina";
-////        addFirstName.sendKeys(addFirstNameValue);
-//        elementsMethods.fillElement(addFirstName, "Alina");    //refactorizam
-//
-//        WebElement addLastName = driver.findElement(By.id("lastName"));
-////        String addLastNameValue = "Popescu";
-////        addLastName.sendKeys(addLastNameValue);
-//        elementsMethods.fillElement(addLastName, "Popescu"); //refactorizam
-//
-//        WebElement addEmail = driver.findElement(By.id("userEmail"));
-////        String addEmailValue = "alina.popescu@test.com";
-////        addEmail.sendKeys(addEmailValue);
-//        elementsMethods.fillElement(addEmail, "alina.popescu@test.com"); //refactorizam
-//
-//        WebElement addMobile = driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
-////        String addMobileValue = "+40744123123";
-////        addMobile.sendKeys(addMobileValue);
-//        elementsMethods.fillElement(addMobile, "+40744123123");
-//
-//        WebElement addPicture = driver.findElement(By.id("uploadPicture"));
-////        File file = new File("src/test/resources/useforJavacourse.png");
-////        addPicture.sendKeys(file.getAbsolutePath());
-//        elementsMethods.uploadPicture(addPicture);
-//
-//        WebElement maleElement = driver.findElement(By.xpath("//label[@for='gender-radio-1']"));
-//        WebElement femaleElement = driver.findElement(By.xpath("//label[@for='gender-radio-2']"));
-//        WebElement otherElement = driver.findElement(By.xpath("//label[@for='gender-radio-3']"));
 //
 //        //cream lista de WebElement cu cele de mai sus
 //        List<WebElement> genderElement = new ArrayList<>();
